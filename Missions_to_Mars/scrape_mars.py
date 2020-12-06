@@ -33,4 +33,7 @@ def scrape():
     mars_info['news_title'] = news_title
     mars_info['news_p'] = news_p
 
+    browser.quit()
+
     return mars_info
+
