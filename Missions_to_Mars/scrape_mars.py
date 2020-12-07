@@ -37,6 +37,9 @@ def scrape():
     mars_info['news_title'] = news_title
     mars_info['news_p'] = news_p
 
+
+    
+
     #Direct browser to JPL Mars Space Images - Featured Image
     jpl_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(jpl_url)
@@ -58,6 +61,39 @@ def scrape():
 
     #Add image URL into dictionary
     mars_info['featured_image'] = featured_image_url
+
+
+
+
+    #Direct browser to visit Hemispheres website
+    hem_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    browser.visit(hem_url)
+
+    #Create empty list to store dictionaries with hemisphere titles and images
+    hemisphere_image_urls = []
+
+    #set variable for links to loop through 
+    links = browser.find_by_css("a.product-item h3")
+
+    #set loop to click each link and 
+    for item in range(len(links)):
+
+        #click link
+        browser.find_by_css('a.product-item h3')[item].click()
+    
+        #Find hemisphere title 
+        title = browser.find_by_css('h2.title').text
+    
+        #Find image URL
+        image = browser.find_by_css('img.wide-image')['src']
+    
+        #append title and image URL into dictionaries and main list
+        hemisphere_image_urls.append({'title': title, 'image' : image})
+    
+        # Navigate Backwards
+        browser.back()
+
+    mars_info['hemisphere'] = hemisphere_image_urls
 
     #Exit browser after completing scrape
     browser.quit()

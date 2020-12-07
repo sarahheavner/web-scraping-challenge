@@ -21,11 +21,16 @@
     <h3> {{ mars_info.news_title }} </h3>
     <h4> {{ mars_info.news_p }}</h4>
 
-    <img src={{ mars_info.featured_image }} alt=Featured>
+    <img src={{ mars_info.featured_image }} alt=Featured />
 
 
+    <h4>Mars Hemispheres</h4>
+    {% for item in mars_info.hemisphere %}
+    <img src={{ item.image }}>
+    {{ item.title }}
 
 
+    {% endfor %}
 
 </body>
 
