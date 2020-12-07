@@ -24,6 +24,10 @@
     <img src={{ mars_info.featured_image }} alt=Featured />
 
 
+    <h4>Mars Facts</h4>
+    {{ mars_info.facts }}
+
+
     <h4>Mars Hemispheres</h4>
     {% for item in mars_info.hemisphere %}
     <img src={{ item.image }}>

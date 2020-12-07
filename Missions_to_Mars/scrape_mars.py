@@ -61,6 +61,27 @@ def scrape():
 
     #Add image URL into dictionary
     mars_info['featured_image'] = featured_image_url
+    
+
+
+
+    #Direct browser to Mars Facts
+    url = 'https://space-facts.com/mars/'
+
+    #Read into pandas
+    mars_facts = pd.read_html(url)[0]
+
+    #Set column titles
+    mars_facts.columns = ['Description','Mars']
+
+    #Set index
+    mars_facts.set_index('Description', inplace=True)
+
+    #Convert facts DF to html
+    facts = mars_facts.to_html()
+
+    #Append dictionary
+    mars_info['facts'] = facts
 
 
 
