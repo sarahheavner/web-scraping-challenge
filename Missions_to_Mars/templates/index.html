@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang=eng>
 
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,23 +11,48 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
+
+
 <body>
-    <div class="jumbotron text-center">
-        <div class="container">
-          <h1 class="display-4">Mission to Mars</h1>
-          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1 class="display-4">Mission to Mars</h1>
+                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+            </div>
+        </div>  
+    </div>
+
+
+
+    <div class="container-fluid">
+        <div class="row" style="padding-left: 5%">
+            <div class = "news">
+                <h2>Latest Mars News</h2>
+                <h3> {{ mars_info.news_title }} </h3>
+                <h4> {{ mars_info.news_p }}</h4>
+            </div>
         </div>
     </div>
 
-    <h2>Latest Mars News</h2>
-    <h3> {{ mars_info.news_title }} </h3>
-    <h4> {{ mars_info.news_p }}</h4>
 
-    <img src={{ mars_info.featured_image }} alt=Featured />
+
+    <div class="container-fluid">
+        <div class="row" style="padding-left: 5%">
+            <div class = "featured">
+                <img src={{ mars_info.featured_image }} alt=Featured />
+            </div>
+        </div>
+    </div>
 
 
     <h4>Mars Facts</h4>
-    {{ mars_info.facts }}
+    <div class="table-responsive">
+        <table class="table">
+            {{ mars_info.facts|safe }}
+        </table>
+      </div>
+    
 
 
     <h4>Mars Hemispheres</h4>
