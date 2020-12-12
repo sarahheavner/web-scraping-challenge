@@ -1,4 +1,4 @@
-#import dependencies
+#import dependencies 
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
 import scrape_mars
@@ -21,7 +21,7 @@ def index():
 
 
 # Route that will trigger the scrape function
-@app.route("/scrape")
+@app.route('/scrape')
 def scraper():
 
     mars_info = mongo.db.mars_info
