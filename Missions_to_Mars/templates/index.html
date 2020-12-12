@@ -18,7 +18,7 @@
         <div class="jumbotron text-center" style="background-image: url(http://www.cool2bkids.com/wp-content/uploads/2014/05/Mars-Surface1.jpg); background-size: 100%";>
             <div class="container">
                 <h1 class="display-4">Mission to Mars</h1>
-                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+                <p><a class="btn btn-primary btn-lg" style="background-color:#661a00" href="/scrape" role="button">Scrape New Data</a></p>
             </div>
         </div>  
     </div>
@@ -26,7 +26,7 @@
 
 
     <div class="container-fluid">
-        <div class="row" style="padding-left: 5%">
+        <div class="row" style="padding-left: 3%">
             <div class = "news">
                 <h2>Latest Mars News</h2>
                 <h3> {{ mars_info.news_title }} </h3>
@@ -35,12 +35,14 @@
         </div>
     </div>
 
-
+    
 
     <div class="container-fluid">
-        <div class="row" style="padding-left: 5%">
+        <div class="row" style="padding-left: 3%">
             <div class = "featured">
-                <img src={{ mars_info.featured_image }} alt=Featured />
+                <h3>Featured Mars Image</h3>
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                <img src={{ mars_info.featured_image }} style="max-width:100%; max-height: auto;" alt=Featured />
             </div>
         </div>
     </div>
@@ -60,9 +62,11 @@
 
     <div class="container-fluid">
         <div class="row">
+            
                 <h3>Mars Hemispheres</h3>
+                
                 {% for item in mars_info.hemisphere %}
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 30rem;">
                 <img src={{ item.image }} class="card-img-top" alt="{{ item.title }}">
                 <div class="card-body">
                     <p class="card-text">{{ item.title }}</p>
