@@ -13,11 +13,11 @@
 
 
 
-<body>
+<body style="background-color: #d9b38c;">
     <div class="container-fluid">
         <div class="jumbotron text-center" style="background-image: url(http://www.cool2bkids.com/wp-content/uploads/2014/05/Mars-Surface1.jpg); background-size: 100%";>
             <div class="container">
-                <h1 class="display-4">Mission to Mars</h1>
+                <h1 class="display-4" style="font-weight: bold";>Mission to Mars</h1>
                 <p><a class="btn btn-primary btn-lg" style="background-color:#661a00" href="/scrape" role="button">Scrape New Data</a></p>
             </div>
         </div>  
@@ -28,9 +28,9 @@
     <div class="container-fluid">
         <div class="row" style="padding-left: 3%">
             <div class = "news">
-                <h2>Latest Mars News</h2>
-                <h3> {{ mars_info.news_title }} </h3>
-                <h4> {{ mars_info.news_p }}</h4>
+                <h3 style="font-weight: bold";>Latest Mars News</h3>
+                <h4 style="font-weight: bold";> {{ mars_info.news_title }} </h4>
+                <p> {{ mars_info.news_p }}</p>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
     <div class="container-fluid">
         <div class="row" style="padding-left: 3%">
             <div class = "featured">
-                <h3>Featured Mars Image</h3>
+                <h3 style="font-weight: bold";>Featured Mars Image</h3>
                 <div class="col-lg-8 col-md-8 col-sm-12">
                 <img src={{ mars_info.featured_image }} style="max-width:100%; max-height: auto;" alt=Featured />
                   
@@ -49,24 +49,22 @@
     
 
         <div class="row">
-            <h3>Mars Facts</h3>
-                        {{ mars_info.facts|safe }}
-                    </table>
-                </div>
+            <h3 style="font-weight: bold";>Mars Facts</h3>
+                {{ mars_info.facts|safe }}             
         </div>
     </div>
     
 
-    <h3>Mars Hemispheres</h3>
+    <h3 align="center" style="font-weight: bold";>Mars Hemispheres</h3>
     <div class="card-deck">
-        <div class="col-lg-12">
+        <div class="col-md-12">
             <div class="row">
                 {% for item in mars_info.hemisphere %}
-                <div class="col-lg-6">
+                <div class="col-md-6">
                     <div class="card">
-                        <img src={{ item.image }} class="card-img-top" alt="{{ item.title }}" style="max-width:100%; max-height: auto;" />
+                        <img src={{ item.image }} class="card-img-top" alt="{{ item.title }}" style="max-width: 100%; max-height: auto;" />
                         <div class="card-body">
-                            <p card-title> {{ item.title }}</p>
+                            <p card-title align="center" style="font-weight: bold";> {{ item.title }}</p>
                         </div>
                     </div>  
                 </div>  
